@@ -1,0 +1,55 @@
+{
+  "name": "babel-plugin-test-unroll",
+  "version": "0.0.0-semantically-released",
+  "description": "A Babel plugin for data-driven testing",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "author": "Sean Walsh <sean.walsh87+npm@gmail.com> (http://swalsh.org/)",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "report-coverage": "codecov",
+    "lint": "eslint .",
+    "build": "rimraf dist && babel --copy-files --out-dir dist src",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "dependencies": {
+    "lodash": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.0",
+    "babel-eslint": "^7.1.0",
+    "babel-jest": "^16.0.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "codecov.io": "^0.1.6",
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.9.0",
+    "eslint-config-seanwalsh": "^1.0.1",
+    "eslint-plugin-babel": "^3.3.0",
+    "jest": "^16.0.2",
+    "rimraf": "^2.5.4",
+    "semantic-release": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s992/babel-plugin-test-unroll"
+  },
+  "bugs": {
+    "url": "https://github.com/s992/babel-plugin-test-unroll/issues"
+  },
+  "homepage": "https://github.com/s992/babel-plugin-test-unroll#readme"
+}

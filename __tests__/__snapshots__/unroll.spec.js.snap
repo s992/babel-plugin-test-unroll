@@ -1,0 +1,303 @@
+exports[`babel-plugin-unroll should unroll 'arrays', resulting in 'two tests, rendering arrays properly in the test description' 1`] = `
+"it(\"should concat [ 1, 2 ] and [ 3, 4 ] for a result of [ 1, 2, 3, 4 ]\", () => {
+	const a = [1, 2],
+	      b = [3, 4],
+	      expected = [1, 2, 3, 4];
+
+	expect(concat(a, b)).toBe(expected);
+});
+it(\"should concat [ 1, 2 ] and [] for a result of [ 1, 2 ]\", () => {
+	const a = [1, 2],
+	      b = [],
+	      expected = [1, 2];
+	expect(concat(a, b)).toBe(expected);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'basic', resulting in 'three tests' 1`] = `
+"it(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+it(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+it(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'function-expressions', resulting in 'two tests that have no problem rendering function expressions in the description' 1`] = `
+"it(\"should execute [function: anonymous] for a result of \'something\'\", () => {
+	const fn = () => {},
+	      something = \"something\";
+
+	expect(fn()).toBe(something);
+});
+it(\"should execute [function: test] for a result of \'something else\'\", () => {
+	const fn = function test() {},
+	      something = \"something else\";
+
+	expect(fn()).toBe(something);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'identifiers', resulting in 'three tests that have no problem rendering identifiers in the description' 1`] = `
+"it(\"should do something with id\", () => {
+	const a = id;
+});
+it(\"should do something with ent\", () => {
+	const a = ent;
+});
+it(\"should do something with ifiers\", () => {
+	const a = ifiers;
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'labels', resulting in 'one test, unaltered because there is no unroll label' 1`] = `
+"it(\"should break a loop or something\", () => {
+	outer: for (let i = 0; i < 10; i++) {
+		for (let j = 0; j < 10; j++) {
+			if (j > 5) {
+				break outer;
+			}
+		}
+	}
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'no-description', resulting in 'three tests with no issues due to not having a description' 1`] = `
+"it(() => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+it(() => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+it(() => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'no-test', resulting in 'no changes, because it's not a test' 1`] = `
+"notATest(\"i\'m some other function call with an unroll statement for some reason\", () => {
+	unroll: \"whatever\";
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'no-unroll', resulting in 'one test, unaltered because there is no unroll label' 1`] = `
+"it(\"should be a pointless test\", () => {
+	expect(1 + 2).toBe(3);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'nulls', resulting in 'two tests that have no problem rendering null in the description' 1`] = `
+"it(\"should return false for a value equal to \'not null\'\", () => {
+	const value = \"not null\",
+	      expected = false;
+
+	expect(isNull(variable)).toBe(true);
+});
+it(\"should return true for a value equal to null\", () => {
+	const value = null,
+	      expected = true;
+	expect(isNull(variable)).toBe(true);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'objects', resulting in 'two tests, rendering objects properly in the test description' 1`] = `
+"it(\"should set a.foo to 2 for a result of { foo: 2 }\", () => {
+	const a = { foo: 1 },
+	      b = 2,
+	      expected = { foo: 2 };
+
+	a.foo = b;
+
+	expect(a).toEqual(expected);
+});
+it(\"should set a.foo to 1 for a result of { foo: 1 }\", () => {
+	const a = {},
+	      b = 1,
+	      expected = { foo: 1 };
+	a.foo = b;expect(a).toEqual(expected);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'regex', resulting in 'two tests, rendering regex literals properly in the test description' 1`] = `
+"it(\"should return true if \'AbCdEfG\' matches /abc/i\", () => {
+	const regex = /abc/i,
+	      str = \"AbCdEfG\",
+	      expected = true;
+
+	expect(match(a, b)).toBe(expected);
+});
+it(\"should return false if \'i won\'t match\' matches /\\\\d+/\", () => {
+	const regex = /\\d+/,
+	      str = \"i won\'t match\",
+	      expected = false;
+	expect(match(a, b)).toBe(expected);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'test-names', resulting in '18 tests, three for each supported test name (it, it.only, test, test.only, fit, fit.only)' 1`] = `
+"it(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+it(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+it(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});
+test(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+test(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+test(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});
+it.only(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+it.only(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+it.only(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});
+test.only(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+test.only(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+test.only(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});
+
+
+// this is probably nonsensical since fit === it.only.. right?
+fit(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+fit(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+fit(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});
+fit.only(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+});
+fit.only(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);
+});
+fit.only(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);
+});"
+`;
+
+exports[`babel-plugin-unroll should unroll 'unroll-block', resulting in 'three tests, making sure to only remove the unroll block' 1`] = `
+"it(\"should sum 1 and 4 for a result of 5\", () => {
+	const a = 1,
+	      b = 4,
+	      expected = 5;
+
+	expect(sum(a, b)).toBe(expected);
+
+	// down here there\'s more stuff and it\'s ok
+	const xyz = \"hello\";
+});
+it(\"should sum 2 and 5 for a result of 7\", () => {
+	const a = 2,
+	      b = 5,
+	      expected = 7;
+	expect(sum(a, b)).toBe(expected);const xyz = \"hello\";
+});
+it(\"should sum 3 and 6 for a result of 9\", () => {
+	const a = 3,
+	      b = 6,
+	      expected = 9;
+	expect(sum(a, b)).toBe(expected);const xyz = \"hello\";
+});"
+`;
