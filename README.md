@@ -65,7 +65,7 @@ There are two parts in each line of the `unroll` block:
 
 The `unroll` block must be the last group of statements in the test *or* it must be wrapped in a block, like this:
 
-```
+```js
 it( "should sum #a and #b for a result of #expected", () => {
 	unroll: {
 		a = [ 1, 2, 3 ]
