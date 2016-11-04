@@ -4,8 +4,11 @@
 [![Code Coverage][coverage-badge]][coverage]
 [![Version][version-badge]][package]
 [![MIT License][license-badge]][LICENSE]
+[![Semantic Release][semantic-release-badge]][semantic-release]
 
 This is a Babel plugin (inspired by [Spock](http://spockframework.org/spock/docs/1.1-rc-2/data_driven_testing.html)) built to support [data driven testing](https://en.wikipedia.org/wiki/Data-driven_testing).
+
+This is still a work in progress, please see the Contributing section if you'd like to help out!
 
 ## Installation
 
@@ -140,4 +143,6 @@ it( "should sum #a and #b for a result of #expected", () => {
 [license]: https://github.com/s992/babel-plugin-test-unroll/blob/master/LICENSE
 [license-badge]: https://img.shields.io/github/license/s992/babel-plugin-test-unroll.svg?style=flat-square
 [package]: https://www.npmjs.com/package/babel-plugin-test-unroll
+[semantic-release]: https://github.com/semantic-release/semantic-release
+[semantic-release-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
 [version-badge]: https://img.shields.io/npm/v/babel-plugin-test-unroll.svg
